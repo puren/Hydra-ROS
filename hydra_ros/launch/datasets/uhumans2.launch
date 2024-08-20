@@ -1,5 +1,5 @@
 <launch>
-    <arg name="sim_time_required" default="true"/>
+    <arg name="sim_time_required" default="false"/>
     <param name="use_sim_time" value="$(arg sim_time_required)"/>
 
     <arg name="config_dir" default="$(find hydra)/config/uhumans2"/>
@@ -26,7 +26,7 @@
     <arg name="rgb_info_topic" default="/tesse/left_cam/camera_info"/>
     <arg name="depth_topic" default="/tesse/depth_cam/mono/image_raw"/>
     <arg name="label_topic" default="/semantic/image_raw" unless="$(arg use_gt_semantics)"/>
-    <arg name="label_topic" default="$(eval '/tesse/seg_cam/converted/image_raw' if arg('use_single_channel_label_image') else '/tesse/seg_cam/rgb/image_raw')" 
+    <arg name="label_topic" default="$(eval '/tesse/seg_cam/converted/image_raw' if arg('use_single_channel_label_image') else '/tesse/seg_cam/rgb/image_raw2')" 
                             if="$(arg use_gt_semantics)"/>
 
     <arg name="prerecorded_topic" default="/oneformer/labels/image_raw"/>
